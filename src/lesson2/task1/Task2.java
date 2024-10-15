@@ -8,12 +8,12 @@ public class Task2 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        int x = scanner.nextInt();
-        int y = scanner.nextInt();
+        int A = scanner.nextInt();
+        int B = scanner.nextInt();
 
-        if (x > y) {
+        if (A > B) {
             System.out.println(">");
-        } else if (y > x) {
+        } else if (B > A) {
             System.out.println("<");
         } else {
             System.out.println("=");

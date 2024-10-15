@@ -86,7 +86,7 @@ public class BasicConstructions {
 
         int x = random.nextInt();
         int y = random.nextInt();
-        String string = scanner.next();
+        String status = scanner.next();
 
         if (x > y) {
             System.out.println("x more than y");
@@ -96,15 +96,18 @@ public class BasicConstructions {
             System.out.println("x equals y");
         }
 
-        switch (string) {
-            case "example1" -> {
-                System.out.println("input -> example1");
+        switch (status) {
+            case "NEW" -> {
+                System.out.println("operation is new");
             }
-            case "example2" -> {
-                System.out.println("input -> example2");
+            case "PUSH" -> {
+                System.out.println("operation in progress");
+            }
+            case "ERROR" -> {
+                System.out.println("operation was rejected");
             }
             default -> {
-                System.out.println("input -> unknown");
+                System.out.println("unknown status");
             }
         }
     }
@@ -116,8 +119,10 @@ public class BasicConstructions {
         //Инициализация массива
         //<тип данных>[] <название> = new <тип данных>[<размер массива>];
         int[] arr = new int[10];
+        //[.][.][.][.][.][.][.][.][.][.]
         int[][] multiplyArr = new int[10][10];
         int[] presetArr = {1, 2, 3, 4, 5, 6};
+        //[1][2][3][4][5][6]
 
         //обычный цикл
         //for (<тип счетчика> <название> = <значение>; <счетчик> <условие> <сравниваемая переменная>; <операция над счетчиком>) {

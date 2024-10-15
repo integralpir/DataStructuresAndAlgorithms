@@ -19,7 +19,7 @@ public class Variables {
 
         //вещественные
         float floatVar = 1.0f;
-        double doubleVar = 2.0;
+        double doubleVar = 2.0d;
 
         //логическая
         boolean booleanVar = true;

@@ -171,6 +171,8 @@ public class Main {
     }
 ```
 
+#### Циклы
+
 ```java
     public static void loopConstructions() {
         Scanner scanner = new Scanner(System.in);
@@ -227,7 +229,7 @@ ___
 - Зарегистрироваться на сайте https://acmp.ru/index.asp?main=tasks
 - Отсортировать задачи по сложности, по возрастанию.
 - Решить 5 - 10 задач, сложностью от 1% до 10%.
-- Загрузить решения в свой личный репозиторий, скинуть мне в личку ссылку (если репозиторий приватный, то не забудьте меня в него пригласить).
+- Загрузить решения в свой личный репозиторий (github), скинуть мне в личку ссылку (если репозиторий приватный, то не забудьте меня в него пригласить).
 
 ___
 ### Полезные ссылки по теме
@@ -235,3 +237,4 @@ ___
  - https://javarush.com/quests/lectures/questsyntaxpro.level20.lecture00 - установка java и небольшой разбор, что там под капотом.  
  - https://javarush.com/quests/lectures/questsyntaxpro.level20.lecture01 - установка и немного о средах разработки.
  - https://www.baeldung.com/java-compiled-interpreted - более подробно о том, что там под капотом.
+ - https://youtu.be/zZBiln_2FhM?si=w44DKTgxLEFhV7tG - ссылка с туториалом по гиту.
