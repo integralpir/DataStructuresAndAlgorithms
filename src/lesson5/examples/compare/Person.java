@@ -1,4 +1,4 @@
-package lesson5.examples;
+package lesson5.examples.compare;
 
 import java.util.Objects;
 

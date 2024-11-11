@@ -48,11 +48,11 @@ public class Person {
 Не будем углубляться в устройство памяти в ```Java```. Вышесказанное было нужно лишь для того, чтобы понять, что следующий код ***будет сравнивать не значения переменных, а их ссылки***...
 
 ```java
-import lesson5.examples.Person;
+import lesson5.examples.compare.Person;
 
 public class Main {
     public static void main(String[] args) {
-        Person person1 = new Person("Roman", "Orlov", "1234123456", 26);
+        lesson5.examples.compare.Person person1 = new lesson5.examples.compare.Person("Roman", "Orlov", "1234123456", 26);
         Person person2 = new Person("Roman", "Orlov", "1234123456", 26);
 
         System.out.println(person1 == person2); // false
@@ -64,7 +64,7 @@ public class Main {
 Например, следующий код отработает корректно т.к. ```person2``` будет присвоена ссылка на ```person1```...
 
 ```java
-import lesson5.examples.Person;
+import lesson5.examples.compare.Person;
 
 public class Main {
     public static void main(String[] args) {
@@ -237,3 +237,36 @@ public Person getYoungest() {
 Ненатуральный порядок напротив, позволяет реализовывать более частные операции сравнения.
 Для частных сравнений нужны частные классы реализующие интерфейс ```Comparator```.
 Интерфейс ```Comparator``` имеет единственный метод ```compare(Object o1, Object o2)```.
+
+Представим, что мы очень редко, но сортируем людей их нашего списка по алфавиту.
+В таком случае, данная сортировка является так называемым ненатуральным порядком.
+Для того чтобы зафиксировать правила такой сортировки, мы создаем класс и реализуем интерфейс ```Comparator```.
+Выглядит это примерно вот так...
+
+```java
+import java.util.Comparator;
+
+public class AlphabetOrder implements Comparator<Person> {
+    @Override
+    public int compare(Person o1, Person o2) {
+        return o1.getLastName().compareTo(o2.getLastName());
+    }
+}
+```
+
+Реализация довольно простая, думаю все понятно без слов, интерфейс очень похож на ```Comparable```, отличается лишь сфера применения.
+
+##### Итог
+
+Подытожить я бы хотел областями применения данных интерфейсов и методов. При работе над боевыми проектами вы само собой не будете реализовывать классы коллекций вручную.
+Вы будете пользоваться уже готовыми классами, интерфейсами и т.д. Готовые решения будут предоставлять вам обертки, в том числе и для сортировки.
+Сигнатуры методов сортировки зачастую будут иметь вариации без аргументов и с аргументами из объектов реализующих интерфейс ```Comparator```,
+как вы можете догадаться, при отсутствии аргументов будет использоваться метод ```compareTo(Object o)``` класса, в противном случае необходимо передать наш "сравнитель" для ненатурального порядка.
+___
+### Простая сортировка
+
+
+___
+## Полезные ссылки
+
+- https://habr.com/ru/articles/523990/ - неплохая статья про интерфейсы ```Comparable``` и ```Comparator```.
