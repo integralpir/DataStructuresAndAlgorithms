@@ -29,6 +29,6 @@ public class StackImpl {
     }
 
     public boolean isFull() {
-        return top == maxSize-1;
+        return top == maxSize - 1;
     }
 }

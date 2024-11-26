@@ -16,7 +16,7 @@ public class QueueImpl {
     }
 
     public void insert(long j) { // Вставка элемента в конец очереди
-        if (rear == maxSize-1) { // Циклический перенос
+        if (rear == maxSize - 1) { // Циклический перенос
             rear = -1;
         }
         queArray[++rear] = j; // Увеличение rear и вставка
