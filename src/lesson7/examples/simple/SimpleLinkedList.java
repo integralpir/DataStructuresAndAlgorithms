@@ -29,10 +29,11 @@ public class SimpleLinkedList implements LinkedList {
         return temp;
     }
 
+    @Override
     public Link find(int key) {
         Link current = first;
         while (current.getData() != key) {
-            if(current.getNext() == null) {
+            if (current.getNext() == null) {
                 return null;
             } else {
                 current = current.getNext();
@@ -41,6 +42,7 @@ public class SimpleLinkedList implements LinkedList {
         return current;
     }
 
+    @Override
     public Link delete(int key) {
         Link current = first;
         Link previous = first;
@@ -67,7 +69,7 @@ public class SimpleLinkedList implements LinkedList {
     public void displayList() {
         System.out.print("List (first-->last): ");
         Link current = first;
-        while(current != null) {
+        while (current != null) {
             current.displayLink();
             current = current.getNext();
         }

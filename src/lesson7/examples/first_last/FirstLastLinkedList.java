@@ -7,6 +7,7 @@ public class FirstLastLinkedList implements LinkedList {
     private Link first;
     private Link last;
 
+    //Конструктор не обязателен, переменные инициализируются null по-умолчанию
     public FirstLastLinkedList() {
         first = null;
         last = null;
