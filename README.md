@@ -14,7 +14,3 @@ ___
 
 - Коротко о том куда и как мы идем - https://roadmap.sh/datastructures-and-algorithms
 - Коротко о том зачем мы туда идем - https://habr.com/ru/articles/279453/
-___
-## Полезные книги
-
--  
