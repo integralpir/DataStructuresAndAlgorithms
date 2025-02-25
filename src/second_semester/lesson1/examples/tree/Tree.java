@@ -5,5 +5,9 @@ public interface Tree {
 
     Node insert(int data);
 
+    Node delete(int key);
+
+    void printAll();
+
     Node getRoot();
 }

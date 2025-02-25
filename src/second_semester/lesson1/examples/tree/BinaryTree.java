@@ -67,6 +67,90 @@ public class BinaryTree implements Tree {
     }
 
     @Override
+    public Node delete(int key) {
+        Node current = root;
+        Node parent = root;
+        boolean isLeftChild = true;
+
+        while (current.getData() != key) {
+            parent = current;
+            if (key < current.getData()) {
+                isLeftChild = true;
+                current = current.getLeftChild();
+            } else {
+                isLeftChild = false;
+                current = current.getRightChild();
+            }
+
+            if (current == null) {
+                return null;
+            }
+        }
+
+        if (current.getLeftChild() == null && current.getRightChild() == null) {
+            if (isLeftChild) {
+                parent.setLeftChild(null);
+            } else {
+                parent.setRightChild(null);
+            }
+        } else if (current.getRightChild() == null) {
+            if (isLeftChild) {
+                parent.setLeftChild(current.getLeftChild());
+            } else {
+                parent.setRightChild(current.getLeftChild());
+            }
+        } else if (current.getLeftChild() == null) {
+            if (isLeftChild) {
+                parent.setLeftChild(current.getRightChild());
+            } else {
+                parent.setRightChild(current.getRightChild());
+            }
+        } else {
+            Node successor = getSuccessor(current);
+            if (isLeftChild) {
+                parent.setLeftChild(successor);
+            } else {
+                parent.setRightChild(successor);
+            }
+            successor.setLeftChild(current.getLeftChild());
+        }
+
+        return current;
+    }
+
+    private Node getSuccessor(Node deletingNode) {
+        Node successorParent = deletingNode;
+        Node successor = deletingNode;
+        Node currentNode = deletingNode.getRightChild();
+
+        while (currentNode != null) {
+            successorParent = successor;
+            successor = currentNode;
+            currentNode = currentNode.getLeftChild();
+        }
+
+        if (successor != deletingNode.getRightChild()) {
+            successorParent.setLeftChild(successor.getRightChild());
+            successor.setRightChild(deletingNode.getRightChild());
+        }
+
+        return successor;
+    }
+
+    @Override
+    public void printAll() {
+        inOrder(this.root);
+    }
+
+    private void inOrder(Node currentNode) {
+        if (currentNode != null) {
+            inOrder(currentNode.getLeftChild());
+            System.out.print(currentNode.getData() + " ");
+            inOrder(currentNode.getRightChild());
+        }
+    }
+
+    @Override
     public Node getRoot() {
         return root;
     }
