@@ -1,4 +1,4 @@
-package second_semester.lesson8.examples;
+package second_semester.lesson9.examples;
 
 public class Graph {
     private final int maxVertex;
@@ -6,7 +6,6 @@ public class Graph {
     private int[][] matrix;
     private int vertexNumber;
     private Stack stack;
-    private Queue queue;
 
     public Graph(int maxVertex) {
         this.maxVertex = maxVertex;
@@ -19,7 +18,6 @@ public class Graph {
             }
         }
         this.stack = new Stack(maxVertex);
-        this.queue = new Queue(maxVertex);
     }
 
     public void addVertex(char label) {
@@ -55,23 +53,24 @@ public class Graph {
         }
     }
 
-    public void breadthFirstTraversal() {
-        vertexList[0].setVisited(true);
-        displayVertex(0);
-        queue.insert(0);
+    public void minimalSpanningTree() {
+        while (!stack.isEmpty()) {
+            int currentVertexIndex = stack.peek();
+            int vertex = getUnvisitedVertex(currentVertexIndex);
 
-        int v2;
-        while (!queue.isEmpty()) {
-            int v1 = queue.remove();
+            if (vertex == -1) {
+                stack.pop();
+            } else {
+                vertexList[vertex].setVisited(true);
+                stack.push(vertex);
 
-            while ((v2 = getUnvisitedVertex(v1)) != -1) {
-                vertexList[v2].setVisited(true);
-                displayVertex(v2);
-                queue.insert(v2);
+                displayVertex(currentVertexIndex);
+                displayVertex(vertex);
+                System.out.print(" ");
             }
         }
 
-        for (int i = 0; i < vertexNumber; i++) { // Сброс флагов
+        for (int i = 0; i < vertexNumber; i++) {
             vertexList[i].setVisited(false);
         }
     }
